@@ -6,18 +6,22 @@ set( CMAKE_C_COMPILER "D:/ModernCpp/Compilers/mingw64/bin" )
 ]]
 
 # set(CMAKE_C_STANDARD 99)
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 20)
 
 project(ECS-Engine #[[LANGUAGES CXX]])
 
 
-
+#find_package(ImGui-SFML REQUIRED)
 
 set(CMAKE_PREFIX_PATH C:/SFML-2.6.0/)
 set(SFML2_DIR C:/libraries/SFML-2.6.0/lib/cmake/SFML)
 #[[find_package(SFML2 REQUIRED)]]
 
-include_directories(C:/libraries/SFML-2.6.0/include)
+include_directories(
+     C:/libraries/SFML-2.6.0/include
+     D:/ModernCpp/GameDevs/SFML/ECS-Engine/src/imgui/imgui
+     D:/ModernCpp/GameDevs/SFML/ECS-Engine/src/imgui/imgui-sfml
+)
 link_directories(C:/libraries/SFML-2.6.0/lib)
 
 # automatically add .h and .cpp files
@@ -26,7 +30,11 @@ file(GLOB source_codes
      "*.cpp"
      "src/*.h"
      "src/*.cpp"
+     "src/imgui/imgui/*.h"
+     "src/imgui/imgui/*.cpp"
+     "src/imgui/imgui-sfml/*.h"
+     "src/imgui/imgui-sfml/*.cpp"
 )
 
 add_executable(ECS-Engine main.cpp ${source_codes})
-target_link_libraries(ECS-Engine ${SFML2_LIBRARIES} -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio)
+target_link_libraries(ECS-Engine ${SFML2_LIBRARIES} -lOpengl32 -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio)
