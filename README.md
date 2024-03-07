@@ -1,2 +1,2 @@
 # ECS-Engine 
-powered by SFML
+Powered by SFML
