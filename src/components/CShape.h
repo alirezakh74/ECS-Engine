@@ -6,9 +6,11 @@
 class CShape
 {
 public:
-    sf::CircleShape shape;
-    CShape() {};
-    CShape(float r)  { shape.setRadius(r); }
+    sf::CircleShape circleShape;
+    sf::RectangleShape rectangleShape;
+    CShape() {}
+    CShape(sf::CircleShape s) : circleShape(s) {}
+    CShape(sf::RectangleShape s) : rectangleShape(s) {}
 };
 
 #endif
